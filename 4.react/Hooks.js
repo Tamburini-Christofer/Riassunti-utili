@@ -2,8 +2,8 @@
 //todo Elenco dei principali React Hooks con il loro ritorno
 
 //!Come leggere questo file?
-//todo Come si usa
-//* Cosa fa e cosa ritorna ogni Hook
+//todo Come si usa e cosa ritorna
+//* Cosa fa 
 //? Quando può essere utile
 
 //todo useState(initialValue)	[state, setState]	
