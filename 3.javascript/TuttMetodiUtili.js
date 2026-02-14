@@ -1,259 +1,334 @@
-// 🔢 Math
+//* Math
 
-// Math.abs()
-// Restituisce il valore assoluto di un numero, eliminando il segno negativo.
+// Math.abs(x) → valore assoluto
+Math.abs(-10) // 10
 
-// Math.round()
-// Arrotonda un numero all’intero più vicino, seguendo le regole matematiche standard.
 
-// Math.floor()
-// Arrotonda sempre per difetto, restituendo il più grande intero minore o uguale al numero.
+// Math.round(x) → arrotonda al più vicino
+Math.round(4.6) // 5
+Math.round(4.4) // 4
 
-// Math.ceil()
-// Arrotonda sempre per eccesso, restituendo il più piccolo intero maggiore o uguale al numero.
 
-// Math.max()
-// Restituisce il valore più grande tra i numeri passati come argomento.
+// Math.floor(x) → arrotonda per difetto
+Math.floor(4.9) // 4
 
-// Math.min()
-// Restituisce il valore più piccolo tra i numeri passati come argomento.
 
-// Math.random()
-// Genera un numero pseudo-casuale compreso tra 0 (incluso) e 1 (escluso).
+// Math.ceil(x) → arrotonda per eccesso
+Math.ceil(4.1) // 5
 
-// Math.sqrt()
-// Calcola la radice quadrata di un numero non negativo.
 
-// Math.pow()
-// Eleva un numero a una potenza specificata.
+// Math.max(...nums) → massimo
+Math.max(2, 7, 4) // 7
 
-// 📦 Array
-// ➕ Metodi di modifica (mutano l’array)
 
-// push()
-// Aggiunge uno o più elementi alla fine dell’array, modificandone la lunghezza.
+// Math.min(...nums) → minimo
+Math.min(2, 7, 4) // 2
 
-// pop()
-// Rimuove l’ultimo elemento dell’array e lo restituisce.
 
-// shift()
-// Rimuove il primo elemento dell’array, facendo slittare tutti gli altri indici.
+// Math.random() → numero casuale 0–1
+Math.random() // 0.2345 (esempio)
 
-// unshift()
-// Aggiunge uno o più elementi all’inizio dell’array.
 
-// splice()
-// Permette di aggiungere, rimuovere o sostituire elementi in una posizione specifica.
+// Math.sqrt(x) → radice quadrata
+Math.sqrt(16) // 4
 
-// fill()
-// Sovrascrive una porzione o l’intero array con un valore statico.
 
-// reverse()
-// Inverte l’ordine degli elementi all’interno dell’array.
+// Math.pow(a, b) → potenza
+Math.pow(2, 3) // 8
 
-// 🔁 Metodi di iterazione (non mutanti)
+//* Array
 
-// forEach()
-// Esegue una funzione per ogni elemento dell’array senza restituire un nuovo array.
+Modifica (mutanti)
 
-// map()
-// Trasforma ogni elemento dell’array e restituisce un nuovo array con gli stessi indici.
+// push() → aggiunge elementi in fondo
+let arr = [1,2]; arr.push(3) // [1,2,3]
 
-// filter()
-// Restituisce un nuovo array contenente solo gli elementi che soddisfano una condizione.
 
-// reduce()
-// Riduce l’array a un singolo valore accumulando il risultato delle iterazioni.
+// pop() → rimuove ultimo elemento
+arr.pop() // 3, arr = [1,2]
 
-// some()
-// Verifica se almeno un elemento soddisfa una condizione.
 
-// every()
-// Verifica se tutti gli elementi soddisfano una condizione.
+// shift() → rimuove primo
+// 
+arr.shift() // 1, arr = [2]
 
-// find()
-// Restituisce il primo elemento che soddisfa una condizione.
 
-// findIndex()
-// Restituisce l’indice del primo elemento che soddisfa una condizione.
+// unshift() → aggiunge all’inizio
+arr.unshift(0) // arr = [0,2]
 
-// 🧰 Metodi di utilità
 
-// includes()
-// Verifica se un valore è presente nell’array.
+// splice(start, deleteCount, ...items) → modifica in posizione
+arr.splice(1, 1, 5) // arr = [0,5]
 
-// indexOf()
-// Restituisce il primo indice in cui è presente un valore, o -1 se assente.
 
-// lastIndexOf()
-// Restituisce l’ultimo indice in cui è presente un valore.
+// fill(value, start, end) → riempie
+arr.fill(1, 0, 2) // arr = [1,1]
 
-// join()
-// Converte tutti gli elementi dell’array in una stringa concatenata.
 
-// slice()
-// Crea una copia superficiale di una porzione dell’array senza modificarlo.
+// reverse() → inverte
+arr.reverse() // arr = [1,1]
 
-// concat()
-// Unisce due o più array restituendo un nuovo array.
+// Iterazione (non mutanti)
 
-// sort()
-// Ordina gli elementi dell’array come stringhe o secondo una funzione di confronto.
+// forEach(cb) → cicla senza restituire
+arr.forEach(n => console.log(n))
 
-// flat()
-// Riduce la profondità di un array annidato fino al livello specificato.
 
-// 🔠 String
+// map(cb) → trasforma → nuovo array
+arr.map(n => n*2) // [2,2]
 
-// length
-// Proprietà che indica il numero di caratteri presenti nella stringa.
 
-// toUpperCase()
-// Converte tutti i caratteri in maiuscolo.
+// filter(cb) → filtra
+arr.filter(n => n>0) // [1,1]
 
-// toLowerCase()
-// Converte tutti i caratteri in minuscolo.
 
-// trim()
-// Rimuove gli spazi vuoti all’inizio e alla fine della stringa.
+// reduce(cb, init) → riduce a singolo valore
+arr.reduce((acc,n)=>acc+n,0) // 2
 
-// includes()
-// Verifica se una stringa contiene una sottostringa.
 
-// startsWith()
-// Controlla se la stringa inizia con una determinata sequenza.
+// some(cb) → almeno uno vero
+arr.some(n=>n>0) // true
 
-// endsWith()
-// Controlla se la stringa termina con una determinata sequenza.
 
-// slice()
-// Estrae una porzione della stringa restituendo una nuova stringa.
+// every(cb) → tutti veri
+arr.every(n=>n>0) // true
 
-// substring()
-// Simile a slice, ma non accetta indici negativi.
 
-// split()
-// Divide la stringa in un array usando un separatore.
+// find(cb) → primo elemento che matcha
+arr.find(n=>n>0) // 1
 
-// replace()
-// Sostituisce la prima occorrenza di una sottostringa.
 
-// replaceAll()
-// Sostituisce tutte le occorrenze di una sottostringa.
+// findIndex(cb) → indice del primo match
+arr.findIndex(n=>n>0) // 0
 
-// charAt()
-// Restituisce il carattere presente a un indice specifico.
+//* Utility
 
-// indexOf()
-// Restituisce la posizione della prima occorrenza di una sottostringa.
+// includes(value) → contiene?
+arr.includes(1) // true
 
-// 🧱 Object
 
-// Object.keys()
-// Restituisce un array contenente tutte le chiavi enumerabili dell’oggetto.
+// indexOf(value) → primo indice
+arr.indexOf(1) // 0
 
-// Object.values()
-// Restituisce un array contenente tutti i valori enumerabili dell’oggetto.
+// 
+// lastIndexOf(value) → ultimo indice
+arr.lastIndexOf(1) // 1
 
-// Object.entries()
-// Restituisce un array di coppie chiave/valore.
 
-// Object.assign()
-// Copia le proprietà da uno o più oggetti sorgente a un oggetto destinazione.
+// join(separator) → array → stringa
+arr.join(",") // "1,1"
 
-// Object.freeze()
-// Rende l’oggetto completamente immutabile.
 
-// Object.seal()
-// Impedisce l’aggiunta o la rimozione di proprietà, ma consente la modifica dei valori esistenti.
+// slice(start,end) → copia porzione
+arr.slice(0,1) // [1]
 
-// hasOwnProperty()
-// Verifica se una proprietà appartiene direttamente all’oggetto.
 
-// 🔁 Number
+// concat(arr2) → unisce
+arr.concat([3,4]) // [1,1,3,4]
 
-// Number()
-// Converte un valore in numero, se possibile.
 
-// parseInt()
-// Converte una stringa in numero intero.
+// sort(cb) → ordina
+[3,1,2].sort((a,b)=>a-b) // [1,2,3]
 
-// parseFloat()
-// Converte una stringa in numero decimale.
 
-// toFixed()
-// Restituisce una stringa con un numero fisso di decimali.
+// flat(depth) → appiattisce array annidati
+[1,[2,[3]]].flat(2) // [1,2,3]
 
-// isNaN()
-// Verifica se un valore non è un numero valido.
+//* String
 
-// isInteger()
-// Verifica se un numero è intero.
+// length → numero di caratteri
+"hello".length // 5
 
-// ⏱ Date
 
-// new Date()
-// Crea un oggetto data basato sulla data e ora correnti.
+// toUpperCase() / toLowerCase() → maiuscolo / minuscolo
+"hello".toUpperCase() // "HELLO"
 
-// getFullYear()
-// Restituisce l’anno.
 
-// getMonth()
-// Restituisce il mese (0–11).
+// trim() → rimuove spazi iniziali/finali
+" hello ".trim() // "hello"
 
-// getDate()
-// Restituisce il giorno del mese.
 
-// getDay()
-// Restituisce il giorno della settimana.
+// includes(substr) → contiene sottostringa
+"hello".includes("ll") // true
 
-// getTime()
-// Restituisce i millisecondi trascorsi dal 1 gennaio 1970.
 
-// toISOString()
-// Converte la data in formato ISO standard.
+// startsWith(substr) / endsWith(substr) → inizio/fine
+"hello".startsWith("he") // true
 
-// ⚙️ Promise / Async
 
-// then()
-// Gestisce il valore risolto di una Promise.
+// slice(start,end) → porzione stringa
+"hello".slice(1,4) // "ell"
 
-// catch()
-// Gestisce eventuali errori.
 
-// finally()
-// Viene eseguito indipendentemente dall’esito.
+// substring(start,end) → simile a slice
+// split(separator) → stringa → array
+"hi there".split(" ") // ["hi","there"]
 
-// Promise.all()
-// Risolve solo quando tutte le Promise sono risolte.
 
-// Promise.race()
-// Risolve o rigetta alla prima Promise completata.
+// replace(a,b) → sostituisce primo match
+// replaceAll(a,b) → sostituisce tutte le occorrenze
+"hello".replace("l","x") // "hexlo"
+"hello".replaceAll("l","x") // "hexxo"
 
-// async / await
-// Sintassi che permette di scrivere codice asincrono in modo sincrono e leggibile.
 
-// 🌐 JSON
+// charAt(index) → carattere
+"hello".charAt(1) // "e"
 
-// JSON.stringify()
-// Converte un oggetto JavaScript in una stringa JSON.
 
-// JSON.parse()
-// Converte una stringa JSON in un oggetto JavaScript.
+// indexOf(substr) → primo indice
+"hello".indexOf("l") // 2
 
-// 🧪 RegExp
+//* Object
+// Object.keys(obj) → restituisce un array con tutte le chiavi enumerabili
 
-// test()
-// Verifica se una stringa corrisponde a un pattern.
+// const obj = {a:1, b:2};
+Object.keys(obj) // ["a","b"]
 
-// exec()
-// Restituisce informazioni dettagliate sul match.
+// 
+// Object.values(obj) → restituisce un array con tutti i valori
+Object.values(obj) // [1,2]
 
-// match()
-// Restituisce i risultati di una ricerca basata su pattern.
 
-// search()
-// Restituisce la posizione del primo match.
+// Object.entries(obj) → restituisce un array di coppie [chiave, valore]
+Object.entries(obj) // [["a",1],["b",2]]
 
-// replace()
-// Sostituisce parti di stringa usando un pattern.
+
+// Object.assign(target, ...sources) → copia proprietà da oggetti sorgente all’oggetto target
+const target = {a:1};
+const source = {b:2};
+Object.assign(target, source) // target = {a:1, b:2}
+
+
+// Object.freeze(obj) → blocca modifiche all’oggetto (non si possono aggiungere, rimuovere o modificare proprietà)
+// const obj = {a:1};
+Object.freeze(obj);
+obj.a = 2; // ignorato, rimane 1
+
+
+// Object.seal(obj) → impedisce aggiunta/rimozione proprietà, ma permette modifiche ai valori esistenti
+const obj = {a:1};
+Object.seal(obj);
+obj.a = 2; // valido, obj.a = 2
+obj.b = 3; // ignorato, non si può aggiungere
+
+
+// hasOwnProperty(prop) → verifica se la proprietà appartiene direttamente all’oggetto
+obj.hasOwnProperty("a") // true
+obj.hasOwnProperty("toString") // false
+
+//* Number
+
+// Number(x) → converte un valore in numero
+Number("123") // 123
+
+
+// parseInt(str) → converte stringa in intero
+parseInt("123px") // 123
+
+
+// parseFloat(str) → converte stringa in numero decimale
+parseFloat("12.34px") // 12.34
+
+
+// toFixed(n) → restituisce stringa con n decimali
+(3.14159).toFixed(2) // "3.14"
+
+
+// isNaN(x) → verifica se non è un numero
+isNaN("abc") // true
+
+
+// isInteger(x) → verifica se è intero
+Number.isInteger(5.0) // true
+Number.isInteger(5.1) // false
+
+//* Date
+
+// new Date() → crea una nuova data
+const d = new Date() // data corrente
+
+
+// getFullYear() → anno
+d.getFullYear() // 2026
+
+
+// getMonth() → mese 0–11
+d.getMonth() // 1 = Febbraio
+
+
+// getDate() → giorno del mese
+d.getDate() // 14
+
+
+// getDay() → giorno settimana 0–6 (0 = Domenica)
+d.getDay() // 2 = Martedì
+
+
+// getTime() → millisecondi dal 1 gennaio 1970
+d.getTime() // 1760000000000
+
+
+// toISOString() → stringa ISO standard
+d.toISOString() // "2026-02-14T12:34:56.789Z"
+
+//*Promise / Async
+
+// then(cb) → gestisce valore risolto
+Promise.resolve(5).then(value => console.log(value)) // 5
+
+
+// catch(cb) → gestisce errore
+Promise.reject("errore").catch(err => console.log(err)) // "errore"
+
+// finally(cb) → sempre eseguito
+Promise.resolve(1).finally(() => console.log("finito"))
+
+
+// Promise.all([promises]) → tutte le promise devono risolversi
+Promise.all([Promise.resolve(1), Promise.resolve(2)])
+  .then(values => console.log(values)) // [1,2]
+
+
+// Promise.race([promises]) → si risolve/rifiuta alla prima completata
+Promise.race([Promise.resolve(1), new Promise(r=>setTimeout(()=>r(2),100))])
+  .then(value => console.log(value)) // 1
+
+
+// async/await → scrittura asincrona leggibile
+async function fetchData() {
+  const result = await Promise.resolve(10);
+  console.log(result); // 10
+}
+
+//*JSON
+
+// JSON.stringify(obj) → oggetto → stringa JSON
+JSON.stringify({a:1, b:2}) // '{"a":1,"b":2}'
+
+
+// JSON.parse(str) → stringa JSON → oggetto
+JSON.parse('{"a":1,"b":2}') // {a:1, b:2}
+
+//*RegExp
+
+// test(str) → verifica se pattern matcha
+const re = /abc/;
+re.test("abcdef") // true
+
+
+// exec(str) → restituisce dettagli match
+re.exec("abcdef") // ["abc", index:0, input:"abcdef"]
+
+
+// match(pattern) → array dei match
+"abc abc".match(/abc/g) // ["abc","abc"]
+
+
+// search(pattern) → indice primo match
+"abcdef".search(/c/) // 2
+
+
+// replace(pattern, repl) → sostituisce pattern
+"abc abc".replace(/abc/g, "x") // "x x"
+
+//*
